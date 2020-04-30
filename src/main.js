@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-console.log('dongsen)
+console.log('dongsen1')
 Vue.config.productionTip = false
 
 new Vue({
