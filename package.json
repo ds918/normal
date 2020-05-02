@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open --copy",
+    "serve:moke": "vue-cli-service serve --open --copy --mode moke",
     "serve:prod": "vue-cli-service serve --open --copy --mode production",
     "build": "vue-cli-service build",
     "build:dev": "vue-cli-service build --mode development",
@@ -11,6 +12,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@csstools/normalize.css": "^10.1.0",
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
   },
