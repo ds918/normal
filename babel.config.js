@@ -3,8 +3,7 @@ module.exports = {
     '@vue/cli-plugin-babel/preset', {
       polyfills: [
         'es.promise',
-        'es.symbol',
-        'es.array.some'
+        'es.symbol'
       ]
     }
   ]]
