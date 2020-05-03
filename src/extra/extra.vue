@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+  <div id="app">
+    extra
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: "extra",
+  components: {},
+  created() {},
 };
 </script>
 

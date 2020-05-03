@@ -1,15 +1,11 @@
 <template>
   <div>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+    <router-link to="/">index</router-link>
   </div>
 </template>
-
 <script>
 export default {
-  name: "App",
+  name: "route",
 };
 </script>
-
 <style lang="scss"></style>

@@ -14,7 +14,7 @@ module.exports = {
       chunks: ["chunk-vendors", "chunk-common", "index"],
     },
     extra: {
-      entry: "src/extra.js",
+      entry: "src/extra/extra.js",
       template: "public/extra.html",
       filename: "extra.html",
       title: "MY APP",
