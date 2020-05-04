@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 export default new VueRouter({
   base: "/",
-  mode: "history",
+  mode: "",
   routes: [
     {
       path: "/",
@@ -14,11 +14,13 @@ export default new VueRouter({
     {
       path: "/ds",
       name: "ds",
-      component: () => import("@/views/ds"),
+      component: () =>
+        import(/* webpackChunkName: "group-test" */ "@/views/ds"),
       children: [
         {
           path: "dss",
-          component: () => import("@/views/dss"),
+          component: () =>
+            import(/* webpackChunkName: "group-test" */ "@/views/dss"),
         },
       ],
     },

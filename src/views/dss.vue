@@ -1,8 +1,8 @@
 <template>
-  <div>dss</div>
+  <div>dss123</div>
 </template>
 <script>
 export default {
-  name: "dss",
+  name: "dss"
 };
 </script>
