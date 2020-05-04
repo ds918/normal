@@ -22,7 +22,7 @@
    - 使用 params 传参必须使用 name 参数 而 query 传参可以使用 path 和 name 参数
    - 使用 params 参数的两种方式
      - 使用动态路由匹配 例如 `{path: "/test/:username/:password"}` 的话显示的 url 地址为`/test/dongsen/123456`
-     - 不使用动态路由匹配的话 `{path: "/test"}`,而在跳转的时候使用 `:to="name:"test",params:{username:dongsen,password:123456"}"`的话 url 为`/test`,但是刷新页面 params 参数便会清楚
+     - 不使用动态路由匹配的话 `{path: "/test"}`,而在跳转的时候使用 `:to="name:"test",params:{username:dongsen,password:123456"}"`的话 url 为`/test`,但是刷新页面 params 参数便会清除
 2. 当路由的参数改变而页面不刷新问题
    - 这种情况发生于,在当前页面的 query 参数触发改变的时候,因为页面是同一个所以不会触发任何生命周期方法
    - 出现 query 参数改变而且页面没有发生跳转的解决办法有连两个
