@@ -1,18 +1,17 @@
 <template>
   <div>
-    <router-link to="/">ds</router-link>
-    <router-link to="/ds/dss">dss</router-link>
-    <router-link :to="{name: 'ds',query: {id:3}}">finally</router-link>
-    <keep-alive>
-      <router-view />
-    </keep-alive>
+    <router-link :to="{name: 'ds',params: {age: 100}}">100ages</router-link>
   </div>
 </template>
 <script>
 export default {
   name: "ds",
+  data() {
+    return {};
+  },
   created() {},
   mounted() {},
-  activated() {}
+  activated() {},
+  methods: {}
 };
 </script>

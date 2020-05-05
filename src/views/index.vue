@@ -1,13 +1,17 @@
 <template>
   <div>
-    <router-link :to="{name: 'ds',query: {id:1}}">index</router-link>
-    <router-link :to="{name: 'ds',query: {id:2}}" replace>index</router-link>
+    <router-link tag="div" :to="{ name: 'ds', params: { age: 24 } }"
+      >index</router-link
+    >
   </div>
 </template>
 <script>
 export default {
-  name: "route",
-  created() {}
+  name: "index",
 };
 </script>
-<style lang="scss"></style>
+<style lang="scss" scoed>
+div {
+  font-size: 18px;
+}
+</style>
