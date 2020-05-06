@@ -1,6 +1,9 @@
 <template>
   <div>
-    <router-link :to="{name: 'ds',params: {age: 100}}">100ages</router-link>
+    <router-link :to="{name: 'dss',params: {age: 100}}">100ages</router-link>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 <script>

@@ -25,6 +25,7 @@
      - 不使用动态路由匹配的话 `{path: "/test"}`,而在跳转的时候使用 `:to="name:"test",params:{username:dongsen,password:123456"}"`的话 url 为`/test`,但是刷新页面 params 参数便会清除
 2. 当路由的参数改变而页面不刷新问题
    - 这种情况发生于,在当前页面的 query 参数触发改变的时候,因为页面是同一个所以不会触发任何生命周期方法
+   - 路由参数改变不会执行任何一个周期函数
    - 出现 query 参数改变而且页面没有发生跳转的解决办法有两个
      - 使用 watch 监听 \$route 来实现数据的更新
      - 使用 beforeRouteUpdate 来监听路由参数的变化
@@ -60,3 +61,13 @@
 
 - 使用px2rem的 `remUnit` 参数值取决于设计稿尺寸 ` remUnit: 75, // 1rem=75px，这里是设计稿的尺寸是750px, 这里的值的比例取决于设计稿的尺寸 `
 - 其中如果不是移动端就要去掉 ` felxible.js ` 以及 ` postcss-px2rem `
+
+
+## router.beforeEach()  main.js
+- 全局的路由守卫,可以对所有的路由页面进行判断逻辑行为
+
+## meta
+- 通过路由的meta字段可以更加灵活的控制路由行为  ` meta: {title: '页面标题',...} `
+
+## map()
+- map方法返回的是满足条件的数组
