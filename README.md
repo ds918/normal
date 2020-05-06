@@ -54,3 +54,9 @@
 ## postcss
 
 - 可以解析 `~`路径
+- 主要是用来处理 css 以及 @import
+
+## postcss-px2rem
+
+- 使用px2rem的 `remUnit` 参数值取决于设计稿尺寸 ` remUnit: 75, // 1rem=75px，这里是设计稿的尺寸是750px, 这里的值的比例取决于设计稿的尺寸 `
+- 其中如果不是移动端就要去掉 ` felxible.js ` 以及 ` postcss-px2rem `
