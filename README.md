@@ -59,23 +59,29 @@
 
 ## postcss-px2rem
 
-- 使用px2rem的 `remUnit` 参数值取决于设计稿尺寸 ` remUnit: 75, // 1rem=75px，这里是设计稿的尺寸是750px, 这里的值的比例取决于设计稿的尺寸 `
-- 其中如果不是移动端就要去掉 ` felxible.js ` 以及 ` postcss-px2rem `
+- 使用 px2rem 的 `remUnit` 参数值取决于设计稿尺寸 `remUnit: 75, // 1rem=75px，这里是设计稿的尺寸是750px, 这里的值的比例取决于设计稿的尺寸`
+- 其中如果不是移动端就要去掉 `felxible.js` 以及 `postcss-px2rem`
 
+## router.beforeEach() main.js
 
-## router.beforeEach()  main.js
 - 全局的路由守卫,可以对所有的路由页面进行判断逻辑行为
 
 ## meta
-- 通过路由的meta字段可以更加灵活的控制路由行为  ` meta: {title: '页面标题',...} `
+
+- 通过路由的 meta 字段可以更加灵活的控制路由行为 `meta: {title: '页面标题',...}`
 
 ## map()
-- map方法返回的是满足条件的数组
+
+- map 方法返回的是满足条件的数组
 
 ## next()
+
 - next(false) 可以阻止页面的跳转
 
-## beforeRouteEnter 
+## beforeRouteEnter
 
-- 只能通过 `next(vm => vm)` 来访问this
+- 只能通过 `next(vm => vm)` 来访问 this
 
+## transition 动画
+
+-
