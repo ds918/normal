@@ -1,8 +1,10 @@
 <template>
   <div>
-    <keep-alive :exclude="excludeList">
-      <router-view />
-    </keep-alive>
+    <transition>
+      <keep-alive :exclude="excludeList">
+        <router-view />
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
