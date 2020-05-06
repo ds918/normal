@@ -18,7 +18,6 @@ export default new VueRouter({
         import(/* webpackChunkName: "group-test" */ "@/views/ds"),
       meta: {
         title: 'ds',
-        age: '24'
       },
       children: [
         {

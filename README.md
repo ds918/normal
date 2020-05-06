@@ -71,3 +71,11 @@
 
 ## map()
 - map方法返回的是满足条件的数组
+
+## next()
+- next(false) 可以阻止页面的跳转
+
+## beforeRouteEnter 
+
+- 只能通过 `next(vm => vm)` 来访问this
+
