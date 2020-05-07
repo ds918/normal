@@ -8,7 +8,7 @@ export default new VueRouter({
     {
       path: "/",
       name: "index",
-      meta: { title: 'index' },
+      meta: { title: "index" },
       component: () => import("@/views/index"),
     },
     {
@@ -17,14 +17,15 @@ export default new VueRouter({
       component: () =>
         import(/* webpackChunkName: "group-test" */ "@/views/ds"),
       meta: {
-        title: 'ds',
+        title: "ds",
       },
+      props: (route) => ({ name: route.query.age }),
       children: [
         {
           path: "dss",
-          name: 'dss',
+          name: "dss",
           meta: {
-            title: 'dss'
+            title: "dss",
           },
           component: () =>
             import(/* webpackChunkName: "group-test" */ "@/views/dss"),
@@ -42,4 +43,4 @@ export default new VueRouter({
       redirect: { name: "404" },
     },
   ],
-})
+});

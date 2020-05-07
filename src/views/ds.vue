@@ -12,9 +12,25 @@ export default {
   data() {
     return {};
   },
-  created() {},
-  mounted() {},
+  props: ["name"],
+  created() {
+    console.log(2);
+  },
+  mounted() {
+    console.log(3);
+  },
   activated() {},
-  methods: {}
+  methods: {},
+  beforeRouteEnter(to, from, next) {
+    console.log(to, from);
+    setTimeout(() => {
+      next(() => {
+        console.log(1);
+      });
+    }, 3000);
+  },
+  beforeRouterUpdate() {
+    console.log("update");
+  }
 };
 </script>

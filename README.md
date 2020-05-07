@@ -49,7 +49,7 @@
 - 可以在 route 中设置 props 的值
   - 布尔值: true 为开启,则参数会被设置为组件的属性
   - 静态值: 可以被设置为了属性 ( 其中 props 设置的值的优先级比 params 和 query 传值高 )
-  - 方法: 通过方法可以访问 route 的传参,并设置自定义的组件属性名 `props: (route) => ({name:route.query.name})`
+  - 方法: 通过方法可以访问 route 的传参,并设置自定义的组件属性名 `props: (route) => ({name:route.query.name})`, props 只能接受返回为对象的方法, 组件 props 参数为对象的键名
   - 其中布尔值的设置目前只适用于 params 传参,也就是把 params 转化为 props
 
 ## postcss
@@ -85,3 +85,11 @@
 ## transition 动画
 
 -
+
+## 数据的获取
+
+- 可以先执行页面的跳转,在页面跳转成功后执行 created 和 mounted
+
+- 可以在 beforeRouteEnter 中执行请求, 如果请求是同步的话, 那么页面的跳转会在请求成功后,如果是异步,那么就会同时执行跳转和请求
+
+- 页面进入的执行顺序 created -> mounted -> beforeRouteEnter

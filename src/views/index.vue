@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link tag="div" :to="{ name: 'ds', params: { age: 24 } }">index</router-link>
+    <router-link tag="div" :to="{ name: 'ds', query: { age: 24 } }">index</router-link>
   </div>
 </template>
 <script>
