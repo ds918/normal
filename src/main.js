@@ -7,12 +7,9 @@ import App from "./App.vue";
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  document.title = to.matched.map(item => item.meta.title).join('/');
-  next((vm) => {
-    console.log(vm);
-
-  });
-})
+  document.title = to.matched.map((item) => item.meta.title).join("  |  ");
+  next();
+});
 
 new Vue({
   router,

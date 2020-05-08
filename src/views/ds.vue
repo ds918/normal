@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="{name: 'dss',params: {age: 100}}">100ages</router-link>
+    <router-link to="/ds/dss">100ages</router-link>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -12,25 +12,9 @@ export default {
   data() {
     return {};
   },
-  props: ["name"],
-  created() {
-    console.log(2);
-  },
-  mounted() {
-    console.log(3);
-  },
+  created() {},
+  mounted() {},
   activated() {},
-  methods: {},
-  beforeRouteEnter(to, from, next) {
-    console.log(to, from);
-    setTimeout(() => {
-      next(() => {
-        console.log(1);
-      });
-    }, 3000);
-  },
-  beforeRouterUpdate() {
-    console.log("update");
-  }
+  methods: {}
 };
 </script>

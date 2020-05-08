@@ -90,6 +90,8 @@
 
 - 可以先执行页面的跳转,在页面跳转成功后执行 created 和 mounted
 
-- 可以在 beforeRouteEnter 中执行请求, 如果请求是同步的话, 那么页面的跳转会在请求成功后,如果是异步,那么就会同时执行跳转和请求
+- 可以在 beforeRouteEnter 中执行请求, 如果请求是同步的话, 那么页面的跳转会在请求成功后
 
-- 页面进入的执行顺序 created -> mounted -> beforeRouteEnter
+- 页面进入的执行顺序 created -> mounted -> beforeRouteEnter( next() )
+
+- 当使用了路由守卫函数就必须调用 next() ,否则路由跳转不会实现

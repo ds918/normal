@@ -14,12 +14,10 @@ export default new VueRouter({
     {
       path: "/ds",
       name: "ds",
-      component: () =>
-        import(/* webpackChunkName: "group-test" */ "@/views/ds"),
+      component: () => import(/* webpackChunkName: "group-ds" */ "@/views/ds"),
       meta: {
         title: "ds",
       },
-      props: (route) => ({ name: route.query.age }),
       children: [
         {
           path: "dss",
@@ -28,7 +26,7 @@ export default new VueRouter({
             title: "dss",
           },
           component: () =>
-            import(/* webpackChunkName: "group-test" */ "@/views/dss"),
+            import(/* webpackChunkName: "group-ds" */ "@/views/dss"),
         },
       ],
     },
@@ -43,4 +41,11 @@ export default new VueRouter({
       redirect: { name: "404" },
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
 });
