@@ -1,10 +1,10 @@
 <template>
   <div>
-    <transition name="fade">
-      <keep-alive :exclude="excludeList">
-        <router-view />
-      </keep-alive>
-    </transition>
+    <!-- <transition name="fade"> -->
+    <keep-alive :exclude="excludeList">
+      <router-view />
+    </keep-alive>
+    <!-- </transition> -->
   </div>
 </template>
 
