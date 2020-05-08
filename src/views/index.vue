@@ -1,20 +1,27 @@
 <template>
   <div>
-    <router-link tag="p" to="ds">index</router-link>
+    <router-link :to="{name:'ds',query: {name:'dongsen',age:24}}" active-class="color">
+      <test></test>
+    </router-link>
+    <router-link tag="p" :to="{name:'ds',query: {name:'dongsen',age:24}}" exact>index</router-link>
+    <test></test>
   </div>
 </template>
 <script>
+import test from "@/components/test";
 export default {
-  name: "index"
+  name: "index",
+  components: {
+    test
+  },
+  created() {}
 };
 </script>
 <style lang="scss" scoped>
 div {
   font-size: 75px;
-  height: 2000px;
 }
-p {
-  position: fixed;
-  top: 0;
+.color {
+  color: red;
 }
 </style>
