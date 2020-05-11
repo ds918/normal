@@ -88,7 +88,7 @@
 
 ## slot 插槽
 
-- 
+-
 
 ## 数据的获取
 
@@ -102,11 +102,11 @@
 
 ## Vuex
 
-- 唯一改变 state 状态的方法就是commit mutation 方法
+- 唯一改变 state 状态的方法就是 commit mutation 方法
 
 - getters 中方法可以对 state 状态进行响应式, 对 state 状态进行过滤和处理但不会修改 state 状态, 其中 getters 中的方法的第二个形参为 getters 方法对象
 
-- state 状态参数也是响应式的, 所以需要提供默认值, 以及当需要更新状态对象为数组和对象时需要使用 Vue.set() 或则 对象展开运算符  `... `
+- state 状态参数也是响应式的, 所以需要提供默认值, 以及当需要更新状态对象为数组和对象时需要使用 Vue.set() 或则 对象展开运算符 `...`
 
 - 当需要实现 mutation 方法的异步改变状态时, 可以使用 actions 实现异步的状态改变, 其中 mutations 只能同步的修改 state 状态, 异步的要放在 actions 中
 
@@ -117,3 +117,7 @@
 - 对于对象, vue 无法监听对象 property 的添加或移除
 
 - 对于数组, vue 无法监听数组的利用索引直接设置一个数组项时, 以及修改数组的长度
+
+## axios
+
+- axios 执行并发的方法是 axios.all([q,p]).then(axios.spread((q,p) => {})) 也就是执行完两个请求后才 .then

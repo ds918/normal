@@ -9,7 +9,7 @@ export default new VueRouter({
       path: "/",
       name: "index",
       meta: { title: "index" },
-      component: () => import("@/views/index"),
+      component: () => import("@/views/Index"),
     },
     {
       path: "/404",
@@ -28,5 +28,5 @@ export default new VueRouter({
     } else {
       return { x: 0, y: 0 };
     }
-  }
+  },
 });
