@@ -1,5 +1,5 @@
 import axios from "axios";
-import Vue from 'vue';
+import Vue from "vue";
 import Qs from "qs";
 const baseURL = process.env.VUE_APP_BASEURL;
 const CancelToken = axios.CancelToken;
@@ -15,45 +15,47 @@ instance.interceptors.request.use(
     return config;
   },
   (error) => {
-    return Promise.reject(error.response.status);
+    return Promise.reject(error);
   }
 );
 
 instance.interceptors.response.use(
   (response) => {
-    handleCode(response.data.code)
-    return response.data;
+    handleCode(response);
+    return {
+      data: {
+        code: response.data.code,
+        msg: response.data.msg,
+        data: response.data.data,
+      },
+    };
   },
   (error) => {
-    if (axios.isCancel(error)) {
-      console.log('api have cancled')
-    } else {
-      return Promise.reject(error);
-    }
+    return Promise.reject(error);
   }
 );
 
-const handleCode = (code) => {
-  if (code === 0) {
-    console.log('暂无数据')
-  } else if (code === 1) {
-    console.log('成功')
-  } else {
-    console.log('异常')
+const handleCode = (response) => {
+  if (response.data.code == 1) {
+    location.href = "/test";
   }
-}
+};
 
-const handleError = (errCode) => {
-  if (errCode.response.status === 404) {
-    console.log('404了')
-  } else if (errCode.response.status === 500) {
-    console.log('接口500了')
+const handleError = (error) => {
+  if (axios.isCancel(error)) {
+    console.log(`${error.message} have canceled`);
+  } else {
+    if (error.response.status === 404) {
+      console.log("404了");
+    } else if (error.response.status === 500) {
+      console.log("接口500了");
+    }
+    throw error;
   }
-  throw errCode.response.status
-}
+};
 
 export const http = {
-  get({ url = baseURL, baseURL = baseURL, data = "", timeout = timeout }) {
+  get({ url = "", baseURL = baseURL, data = "", timeout = timeout }) {
     return new Promise((resolve) => {
       instance({
         url,
@@ -61,19 +63,19 @@ export const http = {
         params: data,
         baseURL,
         timeout,
-        paramsSerializer: function (params) {
+        paramsSerializer: function(params) {
           params = typeof params === "string" ? Qs.parse(params) : params;
           return Qs.stringify(params, { arrayFormat: "brackets" });
         },
-        cancelToken: new CancelToken(function (cancel) {
-          Vue.$cancelList.push(cancel)
-        })
+        cancelToken: new CancelToken(function(cancel) {
+          Vue.$cancelList.push({ cancel, message: url });
+        }),
       })
-        .then((res) => {
-          resolve(res);
+        .then((response) => {
+          resolve(response);
         })
         .catch((error) => {
-          handleError(error)
+          handleError(error);
         });
     });
   },
@@ -86,20 +88,20 @@ export const http = {
         baseURL,
         timeout,
         transformRequest: [
-          function (data) {
+          function(data) {
             data = typeof data === "string" ? data : Qs.stringify(data);
             return data;
           },
         ],
-        cancelToken: new CancelToken(function (cancel) {
-          Vue.$cancelList.push(cancel)
-        })
+        cancelToken: new CancelToken(function(cancel) {
+          Vue.$cancelList.push({ cancel, message: url });
+        }),
       })
-        .then((res) => {
-          resolve(res);
+        .then((response) => {
+          resolve(response);
         })
         .catch((error) => {
-          handleError(error)
+          handleError(error);
         });
     });
   },
