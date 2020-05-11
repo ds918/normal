@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <router-link to="/test">123123</router-link>
+  </div>
 </template>
 <script>
 export default {

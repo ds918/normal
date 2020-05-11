@@ -12,6 +12,12 @@ export default new VueRouter({
       component: () => import("@/views/Index"),
     },
     {
+      path: "/test",
+      name: "test",
+      meta: { title: "test" },
+      component: () => import("@/views/Test"),
+    },
+    {
       path: "/404",
       name: "404",
       meta: "404",

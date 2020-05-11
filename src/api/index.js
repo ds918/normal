@@ -1,6 +1,8 @@
 import axios from "axios";
+import Vue from 'vue';
 import Qs from "qs";
 const baseURL = process.env.VUE_APP_BASEURL;
+const CancelToken = axios.CancelToken;
 const timeout = 100000;
 
 let instance = axios.create({
@@ -13,22 +15,42 @@ instance.interceptors.request.use(
     return config;
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(error.response.status);
   }
 );
+
 instance.interceptors.response.use(
   (response) => {
-    if (response.data.code === 0) {
-      console.log("获取数据失败");
-    } else if (response.data.code == 2) {
-      console.log("没有数据");
-    }
+    handleCode(response.data.code)
     return response.data;
   },
   (error) => {
-    return Promise.reject(error);
+    if (axios.isCancel(error)) {
+      console.log('api have cancled')
+    } else {
+      return Promise.reject(error);
+    }
   }
 );
+
+const handleCode = (code) => {
+  if (code === 0) {
+    console.log('暂无数据')
+  } else if (code === 1) {
+    console.log('成功')
+  } else {
+    console.log('异常')
+  }
+}
+
+const handleError = (errCode) => {
+  if (errCode.response.status === 404) {
+    console.log('404了')
+  } else if (errCode.response.status === 500) {
+    console.log('接口500了')
+  }
+  throw errCode.response.status
+}
 
 export const http = {
   get({ url = baseURL, baseURL = baseURL, data = "", timeout = timeout }) {
@@ -39,16 +61,19 @@ export const http = {
         params: data,
         baseURL,
         timeout,
-        paramsSerializer: function(params) {
+        paramsSerializer: function (params) {
           params = typeof params === "string" ? Qs.parse(params) : params;
           return Qs.stringify(params, { arrayFormat: "brackets" });
         },
+        cancelToken: new CancelToken(function (cancel) {
+          Vue.$cancelList.push(cancel)
+        })
       })
         .then((res) => {
           resolve(res);
         })
         .catch((error) => {
-          throw error;
+          handleError(error)
         });
     });
   },
@@ -61,17 +86,20 @@ export const http = {
         baseURL,
         timeout,
         transformRequest: [
-          function(data) {
+          function (data) {
             data = typeof data === "string" ? data : Qs.stringify(data);
             return data;
           },
         ],
+        cancelToken: new CancelToken(function (cancel) {
+          Vue.$cancelList.push(cancel)
+        })
       })
         .then((res) => {
           resolve(res);
         })
         .catch((error) => {
-          throw error;
+          handleError(error)
         });
     });
   },

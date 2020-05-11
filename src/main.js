@@ -8,6 +8,12 @@ import App from "@/App.vue";
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
+  if (Vue.$cancelList.length) {
+    Vue.$cancelList.forEach((item) => {
+      item();
+    })
+    Vue.$cancelList = [];
+  }
   document.title = to.matched.map((item) => item.meta.title).join("  |  ");
   next();
 });
