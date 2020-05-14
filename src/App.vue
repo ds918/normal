@@ -12,8 +12,13 @@ export default {
   data() {
     return {
       excludeList: [],
+      disabled: "xss"
     };
   },
+  mounted() {
+    console.log(this);
+  },
+  methods: {}
 };
 </script>
 
