@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+  publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
   assetsDir: "static",
   filenameHashing: true,
   lintOnSave: process.env.NODE_ENV !== "production",
@@ -39,7 +39,7 @@ module.exports = {
     requireModuleExtension: true,
     loaderOptions: {
       scss: {
-        prependData: `@import "~@/assets/css/variables.scss";`,
+        prependData: `@import "~@/styles/variables.scss";`,
       },
       postcss: {
         plugins: [
