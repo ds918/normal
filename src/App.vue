@@ -11,14 +11,9 @@ export default {
   name: "App",
   data() {
     return {
-      excludeList: [],
-      disabled: "xss"
+      excludeList: []
     };
-  },
-  mounted() {
-    console.log(this);
-  },
-  methods: {}
+  }
 };
 </script>
 

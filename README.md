@@ -121,3 +121,13 @@
 ## axios
 
 - axios 执行并发的方法是 axios.all([q,p]).then(axios.spread((q,p) => {})) 也就是执行完两个请求后才 .then
+
+## vue
+- 在 watch 和 computed 中定义的方法不能使用箭头函数, 因为获取不到 this 对象
+
+## vue.config.js
+- 在使用 postcss.plugins 的时候如果没有显示的 require('autoprefixer') 那么将不起作用
+
+## key is
+- key 的作用是确保渲染的数据发生改变时, DOM 节点能够被替换, 使得 dom 节点重新加载, 而不是仅仅只更新数据
+- is 可以把标签转译为指定的组件, 在 vue 单页面没有没有必要使用
