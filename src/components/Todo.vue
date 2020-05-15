@@ -20,9 +20,7 @@ export default {
       required: true
     }
   },
-  created() {
-    console.log(this.$root);
-  },
+  created() {},
   data: () => {
     return {};
   },

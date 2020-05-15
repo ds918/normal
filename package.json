@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open --copy",
-    "serve:moke": "vue-cli-service serve --open --copy --mode moke",
-    "serve:prod": "vue-cli-service serve --open --copy --mode production",
     "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
     "build:dev": "vue-cli-service build --mode development",
     "build:modern": "vue-cli-service build --modern",
-    "lint": "vue-cli-service lint"
+    "serve:moke": "vue-cli-service serve --open --copy --mode moke",
+    "serve:prod": "vue-cli-service serve --open --copy --mode production"
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
@@ -21,6 +21,7 @@
     "qs": "^6.9.4",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
+    "vuetify": "^2.2.11",
     "vuex": "^3.3.0"
   },
   "devDependencies": {
@@ -31,8 +32,11 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.0",
+    "sass": "^1.19.0",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-cli-plugin-vuetify": "^2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   },
   "eslintConfig": {
     "root": true,

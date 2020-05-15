@@ -1,9 +1,9 @@
 import Vue from "vue";
-import "lib-flexible/flexible.js";
 import router from "@/route/router";
 import store from "@/store/index";
 import "@/lib/index";
 import App from "@/App.vue";
+import vuetify from './plugins/vuetify';
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
@@ -20,5 +20,6 @@ router.beforeEach((to, from, next) => {
 new Vue({
   router,
   store,
-  render: (h) => h(App),
+  vuetify,
+  render: (h) => h(App)
 }).$mount("#app");

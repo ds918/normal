@@ -36,9 +36,7 @@ export default {
     };
   },
   computed: {},
-  created() {
-    console.log(this.$root);
-  },
+  created() {},
   methods: {
     outer() {
       console.log("outer");
