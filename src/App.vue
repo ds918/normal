@@ -1,5 +1,5 @@
 <template>
-  <keep-alive>
+  <keep-alive :exclude="excludeList">
     <router-view></router-view>
   </keep-alive>
 </template>
@@ -8,6 +8,8 @@
 export default {
   name: "App",
   components: {},
-  data: () => ({})
+  data: () => ({
+    excludeList: []
+  })
 };
 </script>
