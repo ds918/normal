@@ -5,7 +5,7 @@ import { getters } from './getters'
 import { mutations } from './mutations'
 import { actions } from './actions'
 Vue.use(vuex);
-export const store = new vuex.Store({
+export default new vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state() {
     return {}
