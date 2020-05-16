@@ -1,29 +1,24 @@
 <template>
-  <div class="ds1" placeholder="456" self="yours">
-    <input :key="item.name" type="text" @input="$emit('update:title',$event.target.value)" />
-    <slot name="header"></slot>
+  <div>
+    <input type="text" />
   </div>
 </template>
 <script>
 export default {
   name: "todo",
   inheritAttrs: false,
-  model: {
-    event: "input"
-  },
   props: {
     item: {
       type: Object,
-      default: () => ({
-        name: "dongsen"
-      }),
-      required: true
-    }
+      required: true,
+    },
   },
-  created() {},
+  created() {
+    console.log(this);
+  },
   data: () => {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
