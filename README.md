@@ -82,14 +82,6 @@
 
 - 只能通过 `next(vm => vm)` 来访问 this
 
-## transition 动画
-
--
-
-## slot 插槽
-
--
-
 ## 数据的获取
 
 - 可以先执行页面的跳转,在页面跳转成功后执行 created 和 mounted
@@ -139,3 +131,9 @@
 - 子组件往父组件传的参数其实就是 $event , $event 参数默认为第一个参数, 否则需要显示的设置形参 $event
 
 - 在子组件中使用 `inheritAttrs: false` 可以使子组件不会去继承没有被 props 定义的父组件自定义属性, 但是 class 和 style 没有这种限制
+
+## $attrs 和 $listeners
+
+- 分别监听的是未被 props 显示定义的属性, 和父组件所有的绑定事件, 可以在子组件的目标节点使用 ` v-bind="$attrs" ` 来绑定属性, 可以通过 ` v-on="$listeners" ` 来给目标节点绑定所有的事件
+
+## 定义全局的基础组件

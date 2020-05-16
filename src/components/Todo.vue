@@ -1,6 +1,7 @@
 <template>
   <div>
-    <input type="text" />
+    <input :class="[$style.inp]" type="text" @input="$emit('update:my',$event.target.value)" />
+    <slot></slot>
   </div>
 </template>
 <script>
@@ -10,15 +11,26 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true,
+      required: true
     },
+    title: String
   },
+  inject: ["log"],
   created() {
     console.log(this);
   },
   data: () => {
     return {};
   },
-  methods: {},
+  methods: {
+    inner() {
+      console.log("inner");
+    }
+  }
 };
 </script>
+<style lang="scss" module>
+.inp {
+  border: 1px solid #000;
+}
+</style>

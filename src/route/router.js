@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 Vue.use(VueRouter);
-export default new VueRouter({
+export const router = new VueRouter({
   base: "/",
   mode: "history",
   routes: [
@@ -9,7 +9,7 @@ export default new VueRouter({
       path: "/",
       name: "index",
       meta: { title: "index" },
-      component: () => import("@/views/Index"),
+      component: () => import("@/views/Index")
     },
     {
       path: "/test",
@@ -35,4 +35,14 @@ export default new VueRouter({
       return { x: 0, y: 0 };
     }
   },
+});
+router.beforeEach((to, from, next) => {
+  if (Vue.$cancelList.length) {
+    Vue.$cancelList.forEach((item) => {
+      item.cancel(item.message);
+    });
+    Vue.$cancelList = [];
+  }
+  document.title = to.matched.map((item) => item.meta.title).join("  |  ");
+  next();
 });
