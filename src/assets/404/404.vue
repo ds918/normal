@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "NOTFOUND",
+  name: "NOTFOUND"
 };
 </script>
 <style lang="scss" scoped>
