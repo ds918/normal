@@ -1,15 +1,12 @@
 <template>
   <div>
-    <!-- <router-link to="/test">123123</router-link> -->
-    <table>
-      <!-- 1231 -->
-      <Todo :my.sync="outter" :item="list">
-        <BaseButton>button</BaseButton>
-      </Todo>
-    </table>
-    {{outter}}
-    <div @click="one">12312313</div>
-    <div @click="$emit('test')">22222222222222222</div>
+    <router-link to="/test">123123</router-link>
+    <!-- 1231 -->
+    <Todo :my.sync="outter" :item="list">
+      <BaseButton green>button</BaseButton>
+      <BaseButton color="red">button</BaseButton>
+    </Todo>
+    <BaseTest></BaseTest>
   </div>
 </template>
 <script>
@@ -32,14 +29,10 @@ export default {
     };
   },
   computed: {},
-  created() {},
+  activated() {
+    console.log(this.author);
+  },
   methods: {
-    one() {
-      this.$off("test");
-      this.$on("test", function() {
-        console.log("test");
-      });
-    },
     log() {
       console.log(1);
     },
@@ -53,11 +46,5 @@ export default {
 .outer {
   padding: 100px;
   height: 200px;
-}
-.btn1 {
-  background-color: red;
-}
-.btn2 {
-  background-color: orange;
 }
 </style>
