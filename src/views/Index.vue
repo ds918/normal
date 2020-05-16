@@ -1,12 +1,11 @@
 <template>
   <div>
     <router-link to="/test">123123</router-link>
-    <!-- 1231 -->
     <Todo :my.sync="outter" :item="list">
       <BaseButton green>button</BaseButton>
       <BaseButton color="red">button</BaseButton>
     </Todo>
-    <BaseTest></BaseTest>
+    <BaseTest v-showname="123"></BaseTest>
   </div>
 </template>
 <script>
@@ -16,7 +15,6 @@ export default {
   components: {
     Todo
   },
-  comments: true,
   data() {
     return {
       list: { name: "dongsen", age: 23 },
@@ -29,15 +27,13 @@ export default {
     };
   },
   computed: {},
-  activated() {
-    console.log(this.author);
-  },
-  methods: {
-    log() {
-      console.log(1);
-    },
-    log1() {
-      console.log(2);
+  created() {},
+  methods: {},
+  directives: {
+    showname: {
+      inserted(el, binding, vnode) {
+        console.log(el, binding, vnode);
+      }
     }
   }
 };
