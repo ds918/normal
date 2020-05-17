@@ -1,7 +1,12 @@
 <template>
   <div>
-    <input :class="[$style.inp]" type="text" @input="$emit('update:my',$event.target.value)" />
+    <input
+      :class="[$style.inp]"
+      type="text"
+      @input="$emit('update:my', $event.target.value)"
+    />
     <slot></slot>
+    <slot name="add"></slot>
   </div>
 </template>
 <script>
@@ -11,9 +16,9 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true
+      required: true,
     },
-    title: String
+    title: String,
   },
   inject: ["log"],
   created() {
@@ -25,8 +30,8 @@ export default {
   methods: {
     inner() {
       console.log("inner");
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" module>

@@ -2,10 +2,15 @@
   <div>
     <router-link to="/test">123123</router-link>
     <Todo :my.sync="outter" :item="list">
-      <BaseButton green>button</BaseButton>
-      <BaseButton color="red">button</BaseButton>
+      <BaseButton v-slot green>button</BaseButton>
+      <template v-slot:add>
+        <BaseButton @click="log" color="red">button</BaseButton>
+      </template>
     </Todo>
-    <BaseTest v-showname="123"></BaseTest>
+    <BaseTest @click="log" name="dongsen123456">456</BaseTest>
+    <transition name="fade">
+      <div v-if="show">hello,world</div>
+    </transition>
   </div>
 </template>
 <script>
@@ -13,29 +18,27 @@ import Todo from "@/components/Todo";
 export default {
   name: "index",
   components: {
-    Todo
+    Todo,
   },
   data() {
     return {
       list: { name: "dongsen", age: 23 },
-      outter: ""
+      outter: "",
+      show: false,
     };
   },
   provide: function() {
     return {
-      log: this.log
+      log: this.log,
     };
   },
   computed: {},
   created() {},
-  methods: {},
-  directives: {
-    showname: {
-      inserted(el, binding, vnode) {
-        console.log(el, binding, vnode);
-      }
-    }
-  }
+  methods: {
+    log() {
+      this.show = !this.show;
+    },
+  },
 };
 </script>
 <style lang="scss" module>
