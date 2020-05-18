@@ -9,7 +9,7 @@
     </Todo>
     <BaseTest @click="log" name="dongsen123456">456</BaseTest>
     <transition name="fade">
-      <div v-if="show">hello,world</div>
+      <div v-show="show">hello,world</div>
     </transition>
   </div>
 </template>
@@ -17,28 +17,31 @@
 import Todo from "@/components/Todo";
 export default {
   name: "index",
+  sex: "biy",
   components: {
-    Todo,
+    Todo
   },
   data() {
     return {
       list: { name: "dongsen", age: 23 },
       outter: "",
-      show: false,
+      show: false
     };
   },
   provide: function() {
     return {
-      log: this.log,
+      log: this.log
     };
   },
   computed: {},
-  created() {},
+  created() {
+    console.log(this);
+  },
   methods: {
     log() {
       this.show = !this.show;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" module>

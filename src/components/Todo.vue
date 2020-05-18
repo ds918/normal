@@ -22,7 +22,6 @@ export default {
   },
   inject: ["log"],
   created() {
-    // console.log(this);
   },
   data: () => {
     return {};

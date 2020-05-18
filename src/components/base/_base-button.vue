@@ -10,6 +10,7 @@
     v-on="$listeners"
   >
     <slot></slot>
+    <slot name="add"></slot>
   </button>
 </template>
 <script>
@@ -17,6 +18,6 @@ export default {
   inheritAttrs: false,
   created() {
     console.log(this);
-  },
+  }
 };
 </script>

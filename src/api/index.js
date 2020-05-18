@@ -36,7 +36,7 @@ instance.interceptors.response.use(
 );
 
 const handleCode = (response) => {
-  if (response.data.code == 1) {
+  if (response.data.code === 1) {
     location.href = "/test";
   }
 };
@@ -63,11 +63,11 @@ export const http = {
         params: data,
         baseURL,
         timeout,
-        paramsSerializer: function (params) {
+        paramsSerializer: function(params) {
           params = typeof params === "string" ? Qs.parse(params) : params;
           return Qs.stringify(params, { arrayFormat: "brackets" });
         },
-        cancelToken: new CancelToken(function (cancel) {
+        cancelToken: new CancelToken(function(cancel) {
           Vue.$cancelList.push({ cancel, message: url });
         }),
       })
@@ -88,12 +88,12 @@ export const http = {
         baseURL,
         timeout,
         transformRequest: [
-          function (data) {
+          function(data) {
             data = typeof data === "string" ? data : Qs.stringify(data);
             return data;
           },
         ],
-        cancelToken: new CancelToken(function (cancel) {
+        cancelToken: new CancelToken(function(cancel) {
           Vue.$cancelList.push({ cancel, message: url });
         }),
       })

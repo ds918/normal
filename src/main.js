@@ -8,8 +8,8 @@ import "@/components/base";
 import "@/filters/index";
 import "@/mixins/index";
 import "@/lib/index";
+import "@/config/index";
 
-Vue.config.productionTip = false;
 new Vue({
   router,
   store,
