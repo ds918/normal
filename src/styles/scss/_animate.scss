@@ -1,10 +1,1 @@
 @import "~animate.css/animate.min.css";
-.fade-enter,
-.fade-leave-to {
-  transform: translate(20px);
-  opacity: 0;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 2s;
-}
