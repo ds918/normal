@@ -1,5 +1,5 @@
 <template>
-  <div class="outer"></div>
+  <div :class="$style.outer"></div>
 </template>
 <script>
 export default {
@@ -8,7 +8,7 @@ export default {
   })
 };
 </script>
-<style lang="scss">
+<style lang="scss" module>
 .outer {
   height: 2000px;
 }

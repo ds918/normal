@@ -5,12 +5,6 @@
         <router-view></router-view>
       </keep-alive>
     </transition>
-    <v-bottom-navigation app background-color="#000" color="red" grow height="64px" dark value="0">
-      <v-btn>one</v-btn>
-      <v-btn>one</v-btn>
-      <v-btn>one</v-btn>
-      <v-btn>one</v-btn>
-    </v-bottom-navigation>
   </v-app>
 </template>
 
