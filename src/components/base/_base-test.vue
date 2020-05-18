@@ -1,14 +1,18 @@
 <script>
 export default {
-  render: function(createElement) {
-    return createElement("h1", {
+  functional: true,
+  render: function(_, context) {
+    return _("h1", {
       domProps: {
-        innerHTML: "hello, world",
+        innerHTML: "hello, world"
       },
-      on: {
-        click: this.$listeners.click,
+      class: {
+        blue: true
       },
+      attrs: {
+        id: context.data.attrs.name
+      }
     });
-  },
+  }
 };
 </script>

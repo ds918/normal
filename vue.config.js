@@ -42,12 +42,12 @@ module.exports = {
       }
     }
   },
-  "configureWebpack": {},
+  "configureWebpack": { devtool: 'source-map' },
   "css": {
     "requireModuleExtension": true,
     "loaderOptions": {
       "scss": {
-        "prependData": "@import \"~@/styles/variables.scss\";"
+        "prependData": "@import \"~@/styles/scss/variables.scss\";"
       }
     }
   },

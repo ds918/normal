@@ -7,17 +7,14 @@
           : Object.keys($attrs)[0],
       },
     ]"
-    v-on="$listeners"
   >
-    <slot></slot>
-    <slot name="add"></slot>
+    <slot name="ss"></slot>
+    <slot name="fs"></slot>
   </button>
 </template>
 <script>
 export default {
   inheritAttrs: false,
-  created() {
-    console.log(this);
-  }
+  created() {}
 };
 </script>
