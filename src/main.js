@@ -1,4 +1,5 @@
 import Vue from "vue";
+// import 'lib-flexible/flexible';
 import { router } from "@/route/router";
 import store from "@/store/index";
 import App from "@/App.vue";

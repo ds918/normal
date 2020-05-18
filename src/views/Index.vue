@@ -1,10 +1,15 @@
 <template>
-  <div>index</div>
+  <div class="outer"></div>
 </template>
 <script>
 export default {
-  name: "index"
+  data: () => ({
+    tay: true
+  })
 };
 </script>
-<style lang="scss" module>
+<style lang="scss">
+.outer {
+  height: 2000px;
+}
 </style>

@@ -48,7 +48,15 @@ module.exports = {
     "loaderOptions": {
       "scss": {
         "prependData": "@import \"~@/styles/scss/variables.scss\";"
-      }
+      },
+      // "postcss": {
+      //   plugins: [
+      //     require('autoprefixer'),
+      //     require('postcss-px2rem')({
+      //       remUnit: 75
+      //     })
+      //   ]
+      // }
     }
   },
   "transpileDependencies": [
