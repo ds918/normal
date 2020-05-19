@@ -5,6 +5,7 @@
         <router-view></router-view>
       </keep-alive>
     </transition>
+    <Base-alert />
   </v-app>
 </template>
 
