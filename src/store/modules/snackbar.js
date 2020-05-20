@@ -3,8 +3,8 @@ export const snackbar = {
   state() {
     return {
       SNACKBAR_OPTIONS: {},
-      SNACKBAR_SHOW: false
-    }
+      SNACKBAR_SHOW: false,
+    };
   },
   getters: {},
   mutations: {
