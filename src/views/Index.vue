@@ -1,12 +1,8 @@
 <template>
-  <div
-    :class="[$style.outer]"
-    @click="$_message({
-    value: 'dongsen',
-    timeout: '2000',
-    type: 'success'
-  })"
-  ></div>
+  <div :class="[$style.outer]" @click="$_message({
+    text: 'dongsen',
+    color: 'error'
+  })"></div>
 </template>
 <script>
 export default {

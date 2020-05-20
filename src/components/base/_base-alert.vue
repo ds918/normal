@@ -1,5 +1,5 @@
 <template>
-  <v-snackbar v-model="SNACKBAR_SHOW">{{SNACKBAR_OPTIONS}}</v-snackbar>
+  <v-snackbar v-model="SNACKBAR_SHOW" top :color="SNACKBAR_OPTIONS.color">{{SNACKBAR_OPTIONS.text}}</v-snackbar>
 </template>
 <script>
 import { mapState } from "vuex";
