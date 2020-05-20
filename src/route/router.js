@@ -13,6 +13,18 @@ export const router = new VueRouter({
       component: () => import("@/views/Index")
     },
     {
+      path: "/test",
+      name: "test",
+      meta: { title: "test" },
+      component: () => import("@/views/test")
+    },
+    {
+      path: "/test1",
+      name: "test1",
+      meta: { title: "test1" },
+      component: () => import("@/views/test1")
+    },
+    {
       path: "/404",
       name: "404",
       meta: "404",

@@ -10,19 +10,13 @@ export const snackbar = {
   mutations: {
     SHOW_SNACKBAR: function (state, options) {
       state.SNACKBAR_SHOW = true;
-      state.SNACKBAR_OPTIONS = Object.assign(state.SNACKBAR_OPTIONS, options)
+      state.SNACKBAR_OPTIONS = Object.assign(state.SNACKBAR_OPTIONS, options);
     },
     CLOSE_SNACKBAR: function (state) {
       state.SNACKBAR_SHOW = false;
+      state.SNACKBAR_OPTIONS = {};
     }
   },
   actions: {
-    fetchSnackbar({ commit, state }, options) {
-      if (state.SNACKBAR_SHOW) return;
-      commit('SHOW_SNACKBAR', options)
-      setTimeout(() => {
-        commit('CLOSE_SNACKBAR')
-      }, options.timeout);
-    }
   }
 }
