@@ -6,5 +6,12 @@ module.exports = {
         'es.symbol'
       ]
     }
-  ]]
+  ]],
+  plugins: [
+    ['import', {
+      libraryName: 'vant',
+      libraryDirectory: 'es',
+      style: true
+    }, 'vant']
+  ]
 }

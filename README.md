@@ -143,3 +143,7 @@
 ## .native 修饰符
 
 - 在父组件绑定 native 事件可以使子组件的能够触发父组件绑定事件
+
+## vuetify 和 vant 
+
+- pc 端以及响应式使用 vuetify , 移动端使用 vant
