@@ -47,7 +47,7 @@ module.exports = {
     "requireModuleExtension": true,
     "loaderOptions": {
       "scss": {
-        "prependData": "@import \"~@/styles/scss/variables.scss\";"
+        "prependData": "@import \"~@/styles/variables.scss\";"
       },
       // "postcss": {
       //   plugins: [

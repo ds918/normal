@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib/framework";
-import "@/styles/index.scss";
+import "@/styles/vuetify-scss/index.scss";
 
 Vue.use(Vuetify);
 
