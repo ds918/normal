@@ -4,6 +4,7 @@ import { router } from "@/route/router";
 import store from "@/store/index";
 import App from "@/App.vue";
 import vuetify from "@/plugins/vuetify";
+import "@/plugins/vant";
 import "@/components/base";
 import "@/directives/index";
 import "@/filters/index";

@@ -12,6 +12,7 @@
     "serve:prod": "vue-cli-service serve --open --copy --mode production"
   },
   "dependencies": {
+    "@vant/touch-emulator": "^1.2.0",
     "amfe-flexible": "^2.2.1",
     "animate.css": "^4.1.0",
     "axios": "^0.19.2",
