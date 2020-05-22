@@ -1,10 +1,10 @@
 <template>
   <v-app id="app" v-cloak>
-    <transition :duration="{ enter:500 }" enter-active-class="animate__animated animate__fadeIn">
-      <keep-alive :exclude="excludeList">
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
+    <!-- <transition :duration="{ enter:500 }"> -->
+    <keep-alive :exclude="excludeList">
+      <router-view></router-view>
+    </keep-alive>
+    <!-- </transition> -->
   </v-app>
 </template>
 
