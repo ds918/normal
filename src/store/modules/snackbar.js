@@ -1,3 +1,4 @@
+import { SHOW_SNACKBAR, CLOSE_SNACKBAR } from '../mutationsList'
 export const snackbar = {
   namespaced: true,
   state() {
@@ -6,17 +7,14 @@ export const snackbar = {
       SNACKBAR_SHOW: false,
     };
   },
-  getters: {},
   mutations: {
-    SHOW_SNACKBAR: function (state, options) {
+    [SHOW_SNACKBAR](state, options) {
       state.SNACKBAR_SHOW = true;
       state.SNACKBAR_OPTIONS = Object.assign(state.SNACKBAR_OPTIONS, options);
     },
-    CLOSE_SNACKBAR: function (state) {
+    [CLOSE_SNACKBAR](state) {
       state.SNACKBAR_SHOW = false;
       state.SNACKBAR_OPTIONS = {};
     }
-  },
-  actions: {
   }
 }

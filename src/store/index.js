@@ -1,6 +1,6 @@
 import Vue from "vue";
 import vuex from "vuex";
-import { snackbar } from './modules/snackbar'
+import { modules } from './modules/index'
 import { getters } from './getters'
 import { mutations } from './mutations'
 import { actions } from './actions'
@@ -13,5 +13,5 @@ export default new vuex.Store({
   getters,
   mutations,
   actions,
-  modules: { snackbar }
+  modules
 });
