@@ -1,11 +1,10 @@
 <template>
-  <!-- <v-snackbar
+  <v-snackbar
     :timeout="SNACKBAR_OPTIONS.timeout"
     v-model="SNACKBAR_SHOW"
     top
     :color="SNACKBAR_OPTIONS.color"
-  >{{SNACKBAR_OPTIONS.text}}</v-snackbar>-->
-  <div>123</div>
+  >{{SNACKBAR_OPTIONS.text}}</v-snackbar>
 </template>
 <script>
 import { mapState } from "vuex";

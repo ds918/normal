@@ -45,7 +45,7 @@ module.exports = {
         plugins: [
           require("autoprefixer"),
           require("postcss-pxtorem")({
-            rootValue: 37.5,
+            rootValue: process.env.VUE_APP_BASESIZE,
             propList: ["*"],
           }),
         ],
