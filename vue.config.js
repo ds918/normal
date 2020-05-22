@@ -1,65 +1,56 @@
 module.exports = {
-  "publicPath": "/",
-  "assetsDir": "static",
-  "filenameHashing": true,
-  "lintOnSave": process.env.NODE_ENV !== "production",
-  "productionSourceMap": false,
-  "crossorigin": "anonymous",
-  "pages": {
-    "index": {
-      "entry": "src/main.js",
-      "template": "public/index.html",
-      "filename": "index.html",
-      "title": "MY APP",
-      "chunks": [
-        "chunk-vendors",
-        "chunk-common",
-        "index"
-      ]
+  publicPath: "/",
+  assetsDir: "static",
+  filenameHashing: true,
+  lintOnSave: process.env.NODE_ENV !== "production",
+  productionSourceMap: false,
+  crossorigin: "anonymous",
+  pages: {
+    index: {
+      entry: "src/main.js",
+      template: "public/index.html",
+      filename: "index.html",
+      title: "MY APP",
+      chunks: ["chunk-vendors", "chunk-common", "index"],
     },
-    "extra": {
-      "entry": "src/extra/extra.js",
-      "template": "public/extra.html",
-      "filename": "extra.html",
-      "title": "MY APP",
-      "chunks": [
-        "chunk-vendors",
-        "chunk-common",
-        "extra"
-      ]
-    }
+    extra: {
+      entry: "src/extra/extra.js",
+      template: "public/extra.html",
+      filename: "extra.html",
+      title: "MY APP",
+      chunks: ["chunk-vendors", "chunk-common", "extra"],
+    },
   },
-  "devServer": {
-    "overlay": {
-      "warnings": true,
-      "errors": true
+  devServer: {
+    overlay: {
+      warnings: true,
+      errors: true,
     },
-    "proxy": {
+    proxy: {
       "/api": {
-        "target": "http://www.example.org",
-        "ws": true,
-        "changeOrigin": true
-      }
-    }
-  },
-  "configureWebpack": { devtool: 'source-map' },
-  "css": {
-    "requireModuleExtension": true,
-    "loaderOptions": {
-      "scss": {
-        "prependData": "@import \"~@/styles/variables.scss\";"
+        target: "http://www.example.org",
+        ws: true,
+        changeOrigin: true,
       },
-      // "postcss": {
-      //   plugins: [
-      //     require('autoprefixer'),
-      //     require('postcss-px2rem')({
-      //       remUnit: 75
-      //     })
-      //   ]
-      // }
-    }
+    },
   },
-  "transpileDependencies": [
-    "vuetify"
-  ]
-}
+  configureWebpack: { devtool: "source-map" },
+  css: {
+    requireModuleExtension: true,
+    loaderOptions: {
+      scss: {
+        prependData: '@import "~@/styles/variables.scss";',
+      },
+      postcss: {
+        plugins: [
+          require("autoprefixer"),
+          require("postcss-pxtorem")({
+            rootValue: 37.5,
+            propList: ["*"],
+          }),
+        ],
+      },
+    },
+  },
+  transpileDependencies: ["vuetify"],
+};

@@ -146,4 +146,4 @@
 
 ## vuetify 和 vant 
 
-- pc端使用 vuetify , 移动端使用 vant
+- pc 端以及响应式使用 vuetify , 移动端使用 vant
