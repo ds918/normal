@@ -1,13 +1,7 @@
 <template>
-  <div id="index">
-    <van-button type="default">默认按钮1</van-button>
-  </div>
+  <div></div>
 </template>
 <script>
-import Vue from "vue";
-import { Button } from "vant";
-
-Vue.use(Button);
 export default {};
 </script>
 <style lang="scss" module>

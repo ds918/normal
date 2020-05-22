@@ -6,12 +6,17 @@
       </keep-alive>
     </transition>
     <base-alert />
+    <bottomNavigation />
   </v-app>
 </template>
 
 <script>
+import bottomNavigation from "@/components/bottom-navigation";
 export default {
   name: "App",
+  components: {
+    bottomNavigation
+  },
   data: () => ({
     excludeList: []
   })

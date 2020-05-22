@@ -1,18 +1,16 @@
 <template>
   <div id="index">
-    <van-button type="default">默认按钮</van-button>
+    <v-btn :height="$V(46)" @click="$_message({'text': 'test',timeout: 1500,color:'success'})">btn</v-btn>
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { Button } from "vant";
-
-Vue.use(Button);
-export default {
-  created() {
-    console.log(process.env);
-  }
-};
+export default {};
 </script>
-<style lang="scss" module>
+<style lang="scss">
+#index {
+  height: 2000px;
+  .v-size--default {
+    font-size: 24px;
+  }
+}
 </style>

@@ -1,5 +1,6 @@
 <template>
   <v-snackbar
+    id="base-alert"
     :timeout="SNACKBAR_OPTIONS.timeout"
     v-model="SNACKBAR_SHOW"
     top
@@ -9,6 +10,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  name: "base-alert",
   computed: {
     ...mapState("snackbar", {
       SNACKBAR_OPTIONS: state => state.SNACKBAR_OPTIONS
@@ -24,3 +26,10 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+#base-alert {
+  .v-snack {
+    font-size: 12px;
+  }
+}
+</style>

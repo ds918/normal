@@ -1,43 +1,35 @@
 <template>
-  <v-bottom-navigation app grow scroll-target color="#376abb" mandatory v-model="value">
-    <v-responsive :aspect-ratio="16/9">
-      <v-btn min-height="100%" to="/" value="index">
-        <span>项目</span>
+  <div id="navigation">
+    <v-bottom-navigation app :height="$V(120)" color="success" mandatory>
+      <v-btn height="100%" min-width="33.33333%">
+        <span>Recents</span>
         <v-icon>mdi-history</v-icon>
       </v-btn>
-    </v-responsive>
-    <v-responsive :aspect-ratio="16/9">
-      <v-btn min-height="100%" to="/test" value="test">
-        <span>统计</span>
-        <v-img
-          v-if="value === 'test'"
-          max-width="30px"
-          height="30px"
-          src="../../src/assets/logo.svg"
-        ></v-img>
-        <v-img v-else max-width="30px" height="30px" src="../../src/assets/img/logo.png"></v-img>
+
+      <v-btn height="100%" min-width="33.33333%">
+        <span>Favorites</span>
+        <v-icon>mdi-heart</v-icon>
       </v-btn>
-    </v-responsive>
-    <v-responsive :aspect-ratio="16/9">
-      <v-btn min-height="100%" to="/test1" value="mine">
-        <span>我的</span>
-        <v-img
-          v-if="value === 'mine'"
-          max-width="30px"
-          height="30px"
-          src="../../src/assets/img/logo.png"
-        ></v-img>
-        <v-img v-else max-width="30px" height="30px" src="../../src/assets/logo.svg"></v-img>
+
+      <v-btn height="100%" min-width="33.33333%">
+        <span>Nearby</span>
+        <v-icon>mdi-map-marker</v-icon>
       </v-btn>
-    </v-responsive>
-  </v-bottom-navigation>
+    </v-bottom-navigation>
+  </div>
 </template>
+
 <script>
 export default {
   data() {
-    return {
-      value: ""
-    };
+    return {};
   }
 };
 </script>
+<style lang="scss">
+#navigation {
+  .v-item-group.v-bottom-navigation .v-btn {
+    font-size: 30px;
+  }
+}
+</style>
