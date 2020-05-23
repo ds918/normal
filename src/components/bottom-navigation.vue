@@ -9,7 +9,7 @@
       v-model="activeBtn"
     >
       <v-btn height="100%" min-width="33.33333%" to="/" value="0">
-        {{activeBtn}}
+        {{ activeBtn }}
         <span>Recents</span>
         <v-icon :size="$V(34)">mdi-history</v-icon>
       </v-btn>
@@ -29,8 +29,8 @@
 import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["navigation/NAVIGATION_INDEX"])
-  }
+    ...mapGetters(["navigation/NAVIGATION_INDEX"]),
+  },
 };
 </script>
 <style lang="scss">

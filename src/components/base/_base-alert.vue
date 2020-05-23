@@ -1,11 +1,13 @@
 <template>
-  <v-snackbar
-    id="base-alert"
-    :timeout="SNACKBAR_OPTIONS.timeout"
-    v-model="SNACKBAR_SHOW"
-    top
-    :color="SNACKBAR_OPTIONS.color"
-  >{{SNACKBAR_OPTIONS.text}}</v-snackbar>
+  <div id="base-alert">
+    <v-snackbar
+      :timeout="SNACKBAR_OPTIONS.timeout"
+      v-model="SNACKBAR_SHOW"
+      top
+      :color="SNACKBAR_OPTIONS.color"
+      >{{ SNACKBAR_OPTIONS.text }}</v-snackbar
+    >
+  </div>
 </template>
 <script>
 import { mapState } from "vuex";
@@ -13,7 +15,7 @@ export default {
   name: "base-alert",
   computed: {
     ...mapState("snackbar", {
-      SNACKBAR_OPTIONS: state => state.SNACKBAR_OPTIONS
+      SNACKBAR_OPTIONS: (state) => state.SNACKBAR_OPTIONS,
     }),
     SNACKBAR_SHOW: {
       get() {
@@ -21,9 +23,9 @@ export default {
       },
       set() {
         this.$store.commit("snackbar/CLOSE_SNACKBAR");
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 <style lang="scss">
