@@ -1,3 +1,4 @@
+import { NAVIGATION_TARGET } from '../mutationsList'
 export const navigation = {
   namespaced: true,
   state() {
@@ -5,9 +6,9 @@ export const navigation = {
       NAVIGATION_INDEX: "0"
     };
   },
-  getters: {
-    SET_INDEX(state) {
-      return state.NAVIGATION_INDEX
+  mutations: {
+    [NAVIGATION_TARGET](state, index) {
+      state.NAVIGATION_INDEX = index;
     }
   }
 }

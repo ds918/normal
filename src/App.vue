@@ -1,8 +1,10 @@
 <template>
   <v-app id="app" v-cloak>
     <transition
-      :duration="{ enter: 500 }"
+      :duration="{ enter: 500 ,leave: 0}"
       enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
+      mode="out-in"
     >
       <keep-alive :exclude="excludeList">
         <router-view></router-view>
@@ -18,11 +20,11 @@ import bottomNavigation from "@/components/bottom-navigation";
 export default {
   name: "App",
   components: {
-    bottomNavigation,
+    bottomNavigation
   },
   data: () => ({
-    excludeList: [],
-  }),
+    excludeList: []
+  })
 };
 </script>
 <style module>

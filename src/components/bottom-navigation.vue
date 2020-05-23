@@ -6,10 +6,9 @@
       color="blue"
       mandatory
       background-color="#fff"
-      v-model="activeBtn"
+      v-model="NAVIGATION_INDEX"
     >
       <v-btn height="100%" min-width="33.33333%" to="/" value="0">
-        {{ activeBtn }}
         <span>Recents</span>
         <v-icon :size="$V(34)">mdi-history</v-icon>
       </v-btn>
@@ -26,11 +25,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   computed: {
-    ...mapGetters(["navigation/NAVIGATION_INDEX"]),
-  },
+    NAVIGATION_INDEX: {
+      get() {
+        return this.$store.state.navigation.NAVIGATION_INDEX;
+      },
+      set(index) {
+        this.$store.commit("navigation/NAVIGATION_TARGET", index);
+      }
+    }
+  }
 };
 </script>
 <style lang="scss">
