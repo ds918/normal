@@ -3,11 +3,18 @@
 </template>
 <script>
 export default {
-  async activated() {
-    let data = await this.$http.post("test", {
-      id: 1,
-    });
-    console.log(data);
+  activated() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      let {
+        data: { data },
+      } = await this.$http.post("test", {
+        id: 1,
+      });
+      console.log(data);
+    },
   },
 };
 </script>

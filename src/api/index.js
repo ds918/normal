@@ -36,8 +36,8 @@ instance.interceptors.response.use(
 );
 
 const handleCode = (response) => {
-  if (response.data.code === 1) {
-    location.href = "/test";
+  if (response.data.code === 2) {
+    location.href = "/404";
   }
 };
 
