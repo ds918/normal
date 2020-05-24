@@ -1,5 +1,5 @@
 <template>
-  <div id="navigation">
+  <div :id="$style.navigation">
     <v-bottom-navigation
       app
       :height="$V(100)"
@@ -33,15 +33,17 @@ export default {
       },
       set(index) {
         this.$store.commit("navigation/NAVIGATION_TARGET", index);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
-<style lang="scss">
+<style lang="scss" module>
 #navigation {
-  .v-item-group.v-bottom-navigation .v-btn {
-    font-size: 30px;
-  }
+  height: 100px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 </style>

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import goTo from 'vuetify/es5/services/goto'
+import goTo from "vuetify/es5/services/goto";
 Vue.use(VueRouter);
 export const router = new VueRouter({
   base: "/",
@@ -10,19 +10,25 @@ export const router = new VueRouter({
       path: "/",
       name: "index",
       meta: { title: "index" },
-      component: () => import("@/views/Index")
+      component: () => import("@/views/Index"),
     },
     {
       path: "/test",
       name: "test",
       meta: { title: "test" },
-      component: () => import("@/views/test")
+      component: () => import("@/views/test"),
     },
     {
       path: "/test1",
       name: "test1",
       meta: { title: "test1" },
-      component: () => import("@/views/test1")
+      component: () => import("@/views/test1"),
+    },
+    {
+      path: "/line",
+      name: "line",
+      meta: { title: "line" },
+      component: () => import("@/views/line"),
     },
     {
       path: "/404",

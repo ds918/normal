@@ -1,13 +1,11 @@
 <template>
-  <div id="base-alert">
-    <v-snackbar
-      :timeout="SNACKBAR_OPTIONS.timeout"
-      v-model="SNACKBAR_SHOW"
-      top
-      :color="SNACKBAR_OPTIONS.color"
-      >{{ SNACKBAR_OPTIONS.text }}</v-snackbar
-    >
-  </div>
+  <v-snackbar
+    :timeout="SNACKBAR_OPTIONS.timeout"
+    v-model="SNACKBAR_SHOW"
+    top
+    :color="SNACKBAR_OPTIONS.color"
+    >{{ SNACKBAR_OPTIONS.text }}</v-snackbar
+  >
 </template>
 <script>
 import { mapState } from "vuex";
@@ -28,10 +26,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-#base-alert {
-  .v-snack {
-    font-size: 12px;
-  }
-}
-</style>

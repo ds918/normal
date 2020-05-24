@@ -115,26 +115,30 @@
 - axios 执行并发的方法是 axios.all([q,p]).then(axios.spread((q,p) => {})) 也就是执行完两个请求后才 .then
 
 ## vue
+
 - 在 watch 和 computed 中定义的方法不能使用箭头函数, 因为获取不到 this 对象
 
 ## vue.config.js
+
 - 在使用 postcss.plugins 的时候如果没有显示的 require('autoprefixer') 那么将不起作用
 
 ## key is
+
 - key 的作用是确保渲染的数据发生改变时, DOM 节点能够被替换, 使得 DOM 节点重新加载, 而不是仅仅只更新数据
 
 - is 可以把标签转译为指定的组件, 在 vue 单页面没有没有必要使用
 
 ## 组件传参
+
 - 在组件上可以自定义事件 `v-on:your-event === @your-event`, 其中自定义事件的名字最好采取 - 命名, 其中通过 $emit() 传过来的参数可以在父组件通过 $event 拿到, 也可以通过定义 methods 方法拿到
 
-- 子组件往父组件传的参数其实就是 $event , $event 参数默认为第一个参数, 否则需要显示的设置形参 $event
+- 子组件往父组件传的参数其实就是 $event , $event 参数默认为第一个参数, 否则需要显示的设置形参 \$event
 
 - 在子组件中使用 `inheritAttrs: false` 可以使子组件不会去继承没有被 props 定义的父组件自定义属性, 但是 class 和 style 没有这种限制
 
 ## $attrs 和 $listeners
 
-- 分别监听的是未被 props 显示定义的属性, 和父组件所有的绑定事件, 可以在子组件的目标节点使用 ` v-bind="$attrs" ` 来绑定属性, 可以通过 ` v-on="$listeners" ` 来给目标节点绑定所有的事件
+- 分别监听的是未被 props 显示定义的属性, 和父组件所有的绑定事件, 可以在子组件的目标节点使用 `v-bind="$attrs"` 来绑定属性, 可以通过 `v-on="$listeners"` 来给目标节点绑定所有的事件
 
 ## 插槽
 
@@ -144,10 +148,14 @@
 
 - 在父组件绑定 native 事件可以使子组件的能够触发父组件绑定事件
 
-## vuetify 和 vant 
+## vuetify 和 vant
 
 - pc 端以及响应式使用 vuetify , 移动端使用 vant
 
 ## css module
 
 - 父组件的样式会影响子组件, 当使用了 module 就不会出现这种情况, 没有关系的页面样式不会相互影响, 但是 css module 不会去解析标签选择器, 所以尽量不要使用标签选择器, 面对父组件样式会影响子组件样式, 在所有的页面的 style 标签中使用最外层的 div 的 id 选择器包裹
+
+## vuetify v-sheet
+
+- 可以作为 div 来使用
