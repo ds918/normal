@@ -13,6 +13,11 @@ import "@/lib/index";
 import "@/config/index";
 import "@/styles/index.scss";
 
+/**
+ * @todo 正式环境注释
+ */
+import "../mock/index";
+
 new Vue({
   router,
   store,

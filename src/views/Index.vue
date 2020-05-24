@@ -1,17 +1,17 @@
 <template>
-  <div id="index">
-    <v-btn :height="$V(80)" class="d-block">btn</v-btn>
-    123
-  </div>
+  <div id="index">MOCKJS</div>
 </template>
 <script>
-export default {};
+export default {
+  async activated() {
+    let data = await this.$http.post("test", {
+      id: 1,
+    });
+    console.log(data);
+  },
+};
 </script>
 <style lang="scss">
-#index {
-  // height: 2000px;
-  .v-size--default {
-    font-size: 24px;
-  }
-}
+// #index {
+// }
 </style>
