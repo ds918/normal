@@ -9,13 +9,11 @@ export default {
   methods: {
     async fetchData() {
       let {
-        data: { data },
-      } = await this.$http.post("test", {
-        id: 1,
-      });
-      console.log(data);
-    },
-  },
+        data: { data, code }
+      } = await this.$_http.get("Wechat/wxlogin");
+      console.log(data, code);
+    }
+  }
 };
 </script>
 <style lang="scss">

@@ -3,9 +3,9 @@ import api from "./api";
 const BASE_URL = process.env.VUE_APP_BASEURL;
 
 Mock.setup({
-  timeout: "10-100",
+  timeout: "10-20",
 });
 
 api.forEach((item) => {
-  Mock.mock(`${BASE_URL}/${item.url}`, item.type, item.data);
+  Mock.mock(`${BASE_URL}/${item.url}`, item.type, item.callback);
 });

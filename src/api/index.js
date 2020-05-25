@@ -1,6 +1,7 @@
-import axios from "axios";
-import Vue from "vue";
 import Qs from "qs";
+import Vue from "vue";
+import axios from "axios";
+import $_message from "@/lib/message";
 const baseURL = process.env.VUE_APP_BASEURL;
 const CancelToken = axios.CancelToken;
 const timeout = 100000;
@@ -45,10 +46,11 @@ const handleError = (error) => {
   if (axios.isCancel(error)) {
     console.log(`${error.message} have canceled`);
   } else {
-    if (error.response.status === 404) {
-      console.log("404了");
-    } else if (error.response.status === 500) {
-      console.log("接口500了");
+    if (error.response) {
+      $_message({
+        text: error.response.status,
+        color: "error"
+      })
     }
     throw error;
   }
@@ -66,11 +68,11 @@ export const http = {
         params: data,
         baseURL,
         timeout,
-        paramsSerializer: function(params) {
+        paramsSerializer: function (params) {
           params = typeof params === "string" ? Qs.parse(params) : params;
           return Qs.stringify(params, { arrayFormat: "brackets" });
         },
-        cancelToken: new CancelToken(function(cancel) {
+        cancelToken: new CancelToken(function (cancel) {
           Vue.$cancelList.push({ cancel, message: url });
         }),
       })
@@ -94,12 +96,12 @@ export const http = {
         baseURL,
         timeout,
         transformRequest: [
-          function(data) {
+          function (data) {
             data = typeof data === "string" ? data : Qs.stringify(data);
             return data;
           },
         ],
-        cancelToken: new CancelToken(function(cancel) {
+        cancelToken: new CancelToken(function (cancel) {
           Vue.$cancelList.push({ cancel, message: url });
         }),
       })
