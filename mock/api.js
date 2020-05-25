@@ -6,15 +6,7 @@ export default [
       code: 1,
       data: {
         "testString|1": "@cname",
-        "testStrings|1-4": function() {
-          // if (true) {
-          return {
-            id: "@cname",
-          };
-          // } else {
-          // return "@name";
-          // }
-        },
+        "testStrings|1-4": "@cname",
         "testNumber|1-10": 1,
         "testNumbers|1-10.2-10": 1,
         "testBoolean|1": true,
