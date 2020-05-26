@@ -161,3 +161,7 @@
 - 可以作为 div 来使用
 
 ## MOCK
+
+## 使用了 async await 捕获异常的方法
+
+- try()catch(err){}

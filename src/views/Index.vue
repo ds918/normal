@@ -8,12 +8,18 @@ export default {
   },
   methods: {
     async fetchData() {
-      let {
-        data: { data, code }
-      } = await this.$_http.get("Wechat/wxlogin");
-      console.log(data, code);
-    }
-  }
+      try {
+        let {
+          data: { data, code },
+        } = await this.$_http.get("Wechat/wxlogin", { id: 1 });
+        console.log(data, code);
+      } catch (err) {
+        console.log(err);
+        throw err;
+      }
+      console.log(1);
+    },
+  },
 };
 </script>
 <style lang="scss">

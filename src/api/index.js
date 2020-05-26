@@ -42,17 +42,19 @@ const handleCode = (response) => {
   }
 };
 
-const handleError = (error) => {
+const handleError = (error, reject) => {
   if (axios.isCancel(error)) {
     console.log(`${error.message} have canceled`);
   } else {
+    // 全局的 error 处理
     if (error.response) {
       $_message({
         text: error.response.status,
-        color: "error"
-      })
+        color: "error",
+      });
     }
-    throw error;
+    // return Promise.reject(error)
+    reject(error);
   }
 };
 
@@ -61,18 +63,18 @@ export const http = {
     if (typeof arguments[0] === "string") url = arguments[0];
     if (typeof arguments[1] === "object" && Object.keys(arguments[1]).length)
       data = arguments[1];
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       instance({
         url,
         method: "GET",
         params: data,
         baseURL,
         timeout,
-        paramsSerializer: function (params) {
+        paramsSerializer: function(params) {
           params = typeof params === "string" ? Qs.parse(params) : params;
           return Qs.stringify(params, { arrayFormat: "brackets" });
         },
-        cancelToken: new CancelToken(function (cancel) {
+        cancelToken: new CancelToken(function(cancel) {
           Vue.$cancelList.push({ cancel, message: url });
         }),
       })
@@ -80,7 +82,7 @@ export const http = {
           resolve(response);
         })
         .catch((error) => {
-          handleError(error);
+          handleError(error, reject);
         });
     });
   },
@@ -96,12 +98,12 @@ export const http = {
         baseURL,
         timeout,
         transformRequest: [
-          function (data) {
+          function(data) {
             data = typeof data === "string" ? data : Qs.stringify(data);
             return data;
           },
         ],
-        cancelToken: new CancelToken(function (cancel) {
+        cancelToken: new CancelToken(function(cancel) {
           Vue.$cancelList.push({ cancel, message: url });
         }),
       })
