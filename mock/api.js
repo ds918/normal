@@ -1,5 +1,7 @@
 import Mock from "mockjs";
 import Qs from 'qs'
+const Random = Mock.Random;
+const code = Random.boolean(90, 10, true) ? 1 : 0;
 export default [
   {
     url: "test",
@@ -52,11 +54,41 @@ export default [
     url: "Wechat/wxlogin",
     type: 'get',
     callback: () => {
-      return Mock.mock({
-        "code|": "@string()",
-        "msg": "123",
-        data: {}
-      })
+      if (code === 1) {
+        return Mock.mock({
+          "code": code,
+          "msg": "Wechat/wxlogin success",
+          "data": {
+            "all_count|1-100": 1,
+            "all_line": {
+              "date|19": [
+                "@date(MM-dd)"
+              ],
+              "home|19": ["@natural(0,2)"],
+              "post|19": ["@natural(10,30)"],
+              "watch|19": ["@natural(0,5)"]
+            },
+            "company_count|1-100": 1,
+            "noReceiptList|20-30": [
+              {
+                "id|+1": 2,
+                "truename": "@cname"
+              }
+            ],
+            "root_url": "@url(https)",
+            "appid": "@string(10,20)",
+            "image": "@image(750x250,red,orange,png,test)"
+          }
+        })
+      } else {
+        return Mock.mock({
+          "code": code,
+          "msg": "Wechat/wxlogin fail",
+          "data": {
+            code: 0
+          }
+        })
+      }
     }
   }
 ];

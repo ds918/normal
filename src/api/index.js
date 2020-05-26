@@ -4,7 +4,7 @@ import axios from "axios";
 import $_message from "@/lib/message";
 const baseURL = process.env.VUE_APP_BASEURL;
 const CancelToken = axios.CancelToken;
-const timeout = 100000;
+const timeout = 5000;
 
 let instance = axios.create({
   baseURL,
@@ -42,7 +42,7 @@ const handleCode = (response) => {
   }
 };
 
-const handleError = (error, reject) => {
+const handleError = (error) => {
   if (axios.isCancel(error)) {
     console.log(`${error.message} have canceled`);
   } else {
@@ -51,10 +51,10 @@ const handleError = (error, reject) => {
       $_message({
         text: error.response.status,
         color: "error",
+        timeout: 2000
       });
     }
-    // return Promise.reject(error)
-    reject(error);
+    location.href = "/netError"
   }
 };
 
@@ -63,26 +63,26 @@ export const http = {
     if (typeof arguments[0] === "string") url = arguments[0];
     if (typeof arguments[1] === "object" && Object.keys(arguments[1]).length)
       data = arguments[1];
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       instance({
         url,
         method: "GET",
         params: data,
         baseURL,
         timeout,
-        paramsSerializer: function(params) {
+        paramsSerializer: function (params) {
           params = typeof params === "string" ? Qs.parse(params) : params;
           return Qs.stringify(params, { arrayFormat: "brackets" });
         },
-        cancelToken: new CancelToken(function(cancel) {
-          Vue.$cancelList.push({ cancel, message: url });
+        cancelToken: new CancelToken(function (cancel) {
+          Vue.$_cancelList.push({ cancel, message: url });
         }),
       })
         .then((response) => {
           resolve(response);
         })
         .catch((error) => {
-          handleError(error, reject);
+          handleError(error);
         });
     });
   },
@@ -98,13 +98,13 @@ export const http = {
         baseURL,
         timeout,
         transformRequest: [
-          function(data) {
+          function (data) {
             data = typeof data === "string" ? data : Qs.stringify(data);
             return data;
           },
         ],
-        cancelToken: new CancelToken(function(cancel) {
-          Vue.$cancelList.push({ cancel, message: url });
+        cancelToken: new CancelToken(function (cancel) {
+          Vue.$_cancelList.push({ cancel, message: url });
         }),
       })
         .then((response) => {

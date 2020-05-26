@@ -4,7 +4,7 @@ import moment from "moment";
 import message from "./message";
 import { showoverlay, hideoverlay } from "./overlay";
 
-Vue.$cancelList = []; // cancel token function list
+Vue.$_cancelList = []; // cancel token function list
 Vue.prototype.$_http = http; // axios实例化对象
 Vue.prototype.$_axios = axios; // axios
 Vue.prototype.$_moment = moment; // moment 时间管理

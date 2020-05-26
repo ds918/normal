@@ -31,6 +31,12 @@ export const router = new VueRouter({
       component: () => import("@/views/line"),
     },
     {
+      path: "/netError",
+      name: "netError",
+      meta: { title: "netError" },
+      component: () => import("@/assets/netError/netError.vue"),
+    },
+    {
       path: "/404",
       name: "404",
       meta: "404",
@@ -50,11 +56,11 @@ export const router = new VueRouter({
   },
 });
 router.beforeEach((to, from, next) => {
-  if (Vue.$cancelList.length) {
-    Vue.$cancelList.forEach((item) => {
+  if (Vue.$_cancelList.length) {
+    Vue.$_cancelList.forEach((item) => {
       item.cancel(item.message);
     });
-    Vue.$cancelList = [];
+    Vue.$_cancelList = [];
   }
   document.title = to.matched.map((item) => item.meta.title).join("  |  ");
   next();
