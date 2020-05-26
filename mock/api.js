@@ -77,7 +77,7 @@ export default [
             ],
             "root_url": "@url(https)",
             "appid": "@string(10,20)",
-            "image": "@image(750x250,red,orange,png,test)"
+            "image": "@image(750x250,red,orange,png,@name)"
           }
         })
       } else {
