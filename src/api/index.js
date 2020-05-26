@@ -1,10 +1,10 @@
 import Qs from "qs";
 import Vue from "vue";
 import axios from "axios";
-import $_message from "@/lib/message";
+import { router } from "@/route/router";
 const baseURL = process.env.VUE_APP_BASEURL;
 const CancelToken = axios.CancelToken;
-const timeout = 5000;
+const timeout = 20000;
 
 let instance = axios.create({
   baseURL,
@@ -38,7 +38,7 @@ instance.interceptors.response.use(
 
 const handleCode = (response) => {
   if (response.data.code === 2) {
-    location.href = "/404";
+    router.push('/404');
   }
 };
 
@@ -47,14 +47,7 @@ const handleError = (error) => {
     console.log(`${error.message} have canceled`);
   } else {
     // 全局的 error 处理
-    if (error.response) {
-      $_message({
-        text: error.response.status,
-        color: "error",
-        timeout: 2000
-      });
-    }
-    location.href = "/netError"
+    router.push({ name: 'netError', params: { errStatus: error.response ? error.response.status : '连接超时' } })
   }
 };
 

@@ -22,6 +22,14 @@ export default {
   },
   methods: {
     async fetchData() {
+      // let {
+      //   data: { data, code }
+      // } = await this.$_http.post({
+      //   url: "NewSpecialBreakWrongCollectionExercise",
+      //   baseURL: "http://60.194.1.132:8003/api/CJ/",
+      //   data:
+      //     "offset_number=0&course_id=1&user_id=165640&token=4e87b5765ac1334abc791eeb7cbf6e14&take_number=1000"
+      // });
       let {
         data: { data, code }
       } = await this.$_http.get("Wechat/wxlogin");

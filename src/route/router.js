@@ -31,9 +31,10 @@ export const router = new VueRouter({
       component: () => import("@/views/line"),
     },
     {
-      path: "/netError",
+      path: "/netError/:errStatus",
       name: "netError",
       meta: { title: "netError" },
+      props: true,
       component: () => import("@/assets/netError/netError.vue"),
     },
     {

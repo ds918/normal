@@ -165,3 +165,7 @@
 ## 使用了 async await 捕获异常的方法
 
 - try()catch(err){}
+
+## NOTIFY
+
+- 在 vue 项目中最好只使用 vue-router 来实现路由的跳转
