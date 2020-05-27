@@ -3,7 +3,7 @@ import api from "./api";
 const BASE_URL = process.env.VUE_APP_BASEURL;
 
 Mock.setup({
-  timeout: "1000-2000",
+  timeout: "10000-20000",
 });
 
 api.forEach((item) => {

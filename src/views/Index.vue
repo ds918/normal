@@ -1,18 +1,23 @@
 <template>
   <v-sheet>
     <v-skeleton-loader
-      class="mx-auto"
-      max-width="200px"
-      max-height="250px"
       type="image"
       :loading="loading"
+      :width="$V(600)"
+      class="mx-auto"
+      :height="$V(300)"
     >
+      <!-- <v-sheet :width="$V(300)" :height="$V(300)"> -->
       <v-img
+        class="mx-auto"
+        lazy-src="../../src/assets/img/logo.png"
         eager
-        width="750px"
         contain
-        src="../../src/assets/img/logo.png"
+        :src="img"
+        :width="$V(600)"
+        :height="$V(300)"
       ></v-img>
+      <!-- </v-sheet> -->
     </v-skeleton-loader>
   </v-sheet>
 </template>
@@ -20,7 +25,7 @@
 export default {
   data: () => ({
     img: "",
-    loading: true,
+    loading: true
   }),
   activated() {
     this.fetchData();
@@ -28,13 +33,13 @@ export default {
   methods: {
     async fetchData() {
       let {
-        data: { data, code },
+        data: { data, code }
       } = await this.$_http.get("Wechat/wxlogin");
       console.log(data, code);
       this.img = data.image;
       this.loading = false;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss"></style>
