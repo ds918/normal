@@ -6,18 +6,22 @@
       :width="$V(600)"
       class="mx-auto"
       :height="$V(300)"
+      transition="slide-x-transition"
     >
-      <!-- <v-sheet :width="$V(300)" :height="$V(300)"> -->
       <v-img
         class="mx-auto"
-        lazy-src="../../src/assets/img/logo.png"
         eager
-        contain
         :src="img"
+        lazy-src="https://picsum.photos/id/11/100/60"
         :width="$V(600)"
         :height="$V(300)"
-      ></v-img>
-      <!-- </v-sheet> -->
+      >
+        <template v-slot:placeholder>
+          <v-row class="fill-height ma-0" align="center" justify="center">
+            <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
     </v-skeleton-loader>
   </v-sheet>
 </template>
