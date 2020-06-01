@@ -3,8 +3,8 @@ Vue.directive("test", {
   bind(el) {
     el.innerHTML = "test";
   },
-  inserted() {},
-  update() {},
-  componentUpdated() {},
-  unbind() {},
+  inserted() { },
+  update() { },
+  componentUpdated() { },
+  unbind() { },
 });

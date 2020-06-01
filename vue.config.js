@@ -36,13 +36,9 @@ module.exports = {
   },
   configureWebpack: { devtool: "source-map" },
   chainWebpack: config => {
-    console.log(config);
-    config.plugin('VuetifyLoaderPlugin').tap((args) => {
-      console.log(args);
-      return [{
-        progressiveImages: true
-      }]
-    })
+    config.plugin('VuetifyLoaderPlugin').tap(() => [{
+      progressiveImages: true
+    }])
   },
   css: {
     requireModuleExtension: true,
