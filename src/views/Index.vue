@@ -9,12 +9,16 @@ export default {
   },
   methods: {
     async fetchData() {
-      let {
-        data: { data, code }
-      } = await this.$_http.post("test", {
-        test: true
-      });
-      console.log(data, code);
+      try {
+        let {
+          data: { data, code }
+        } = await this.$_http.post("test", {
+          test: true
+        });
+        console.log(data, code);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };
