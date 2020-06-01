@@ -56,7 +56,7 @@ export const http = {
     if (typeof arguments[0] === "string") url = arguments[0];
     if (typeof arguments[1] === "object" && Object.keys(arguments[1]).length)
       data = arguments[1];
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       instance({
         url,
         method: "GET",
@@ -75,6 +75,7 @@ export const http = {
           resolve(response);
         })
         .catch((error) => {
+          reject(error)
           handleError(error);
         });
     });
@@ -83,7 +84,7 @@ export const http = {
     if (typeof arguments[0] === "string") url = arguments[0];
     if (typeof arguments[1] === "object" && Object.keys(arguments[1]).length)
       data = arguments[1];
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       instance({
         url,
         method: "POST",
@@ -104,6 +105,7 @@ export const http = {
           resolve(response);
         })
         .catch((error) => {
+          reject(error)
           handleError(error);
         });
     });
