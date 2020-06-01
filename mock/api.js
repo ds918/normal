@@ -7,6 +7,7 @@ export default [
     url: "test",
     type: "post",
     callback: (options) => {
+      console.log(Qs.parse(options.body));
       return Mock.mock({
         code: 1,
         data: {
@@ -53,7 +54,8 @@ export default [
   {
     url: "Wechat/wxlogin",
     type: 'get',
-    callback: () => {
+    callback: (options) => {
+      console.log(options);
       if (code === 1) {
         return Mock.mock({
           "code": code,

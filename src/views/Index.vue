@@ -11,7 +11,9 @@ export default {
     async fetchData() {
       let {
         data: { data, code }
-      } = await this.$_http.get("Wechat/wxlogin");
+      } = await this.$_http.post("test", {
+        test: true
+      });
       console.log(data, code);
     }
   }
