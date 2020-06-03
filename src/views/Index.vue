@@ -2,6 +2,7 @@
   <v-sheet></v-sheet>
 </template>
 <script>
+import _ from "lodash";
 export default {
   data: () => ({}),
   activated() {
