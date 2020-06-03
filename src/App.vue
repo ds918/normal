@@ -25,19 +25,19 @@ import bottomNavigation from "@/components/bottom-navigation";
 export default {
   name: "App",
   components: {
-    bottomNavigation
+    bottomNavigation,
   },
   computed: {
     displayNavbar() {
       return this.displayNavbarList.every(
-        routeName => routeName !== this.$route.name
+        (routeName) => routeName !== this.$route.name
       );
-    }
+    },
   },
   data: () => ({
     excludeList: [],
-    displayNavbarList: ["line"]
-  })
+    displayNavbarList: [],
+  }),
 };
 </script>
 <style module lang="scss">

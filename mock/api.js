@@ -6,8 +6,8 @@ export default [
   {
     url: "test",
     type: "post",
-    callback: () => {
-      // console.log(Qs.parse(options.body));
+    callback: (options) => {
+      console.log(Qs.parse(options.body));
       return Mock.mock({
         code: 1,
         data: {

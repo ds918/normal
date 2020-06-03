@@ -12,16 +12,16 @@ export default {
     async fetchData() {
       try {
         let {
-          data: { data, code }
+          data: { data, code },
         } = await this.$_http.post("test", {
-          test: true
+          test: true,
         });
-        console.log(data, code);
+        console.log(data, code, _);
       } catch (error) {
         console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss"></style>
