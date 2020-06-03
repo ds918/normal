@@ -1,4 +1,4 @@
-# myapp master
+# myapp local
 
 # publicPath 必须要和当前项目的服务器路径一致，否则会匹配到其他路径代码，或则匹配不到任何文件
 
