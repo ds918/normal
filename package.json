@@ -15,7 +15,7 @@
     "@vant/touch-emulator": "^1.2.0",
     "amfe-flexible": "^2.2.1",
     "animate.css": "^4.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "lodash": "^4.17.15",
     "mockjs": "^1.1.0",
